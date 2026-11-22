@@ -1,0 +1,2295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Sairam Campus Care — Sri Sairam Engineering College & Institutions</title>
+  <meta name="description" content="Official Campus Issue Reporting & Maintenance Resolution Website and App for Sri Sairam Engineering College and Sairam Institutions. Aligned with UN SDGs." />
+  <meta name="theme-color" content="#0A2540" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Sairam Care" />
+
+  <!-- Open Graph Tags for Public Sharing -->
+  <meta property="og:title" content="Sairam Campus Care — Sri Sairam Institutions" />
+  <meta property="og:description" content="Report campus problems, support active issues, and track real-time resolutions in IST." />
+  <meta property="og:type" content="website" />
+
+  <!-- Dynamic PWA Manifest Link (Injected on Load for Real App Installation) -->
+  <link id="pwa-manifest-link" rel="manifest" href="" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            sairam: {
+              navy: '#0A2540',
+              navyLight: '#143A61',
+              teal: '#0D9488',
+              gold: '#F59E0B',
+              surface: '#F8FAFC'
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F8FAFC;
+      -webkit-tap-highlight-color: transparent;
+    }
+    h1, h2, h3, .font-display {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-slide-up {
+      animation: slideUp 0.25s ease-out forwards;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="text-slate-900 min-h-screen flex flex-col relative selection:bg-[#0A2540] selection:text-white pb-20 md:pb-0">
+
+  <!-- ====================================================================== -->
+  <!-- SUBTLE UN SDG WATERMARK BACKGROUND (NON-INTRUSIVE, CLEAN & NEAT)       -->
+  <!-- ====================================================================== -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden select-none opacity-[0.045]" aria-hidden="true">
+    <!-- SDG 4: Quality Education -->
+    <div class="absolute -top-8 -left-8 text-[#0A2540] transform -rotate-12">
+      <svg class="w-64 h-64 sm:w-80 sm:h-80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+      </svg>
+      <span class="block text-[11px] font-extrabold tracking-[0.25em] uppercase text-center mt-1">
+        SDG 4 • Quality Education
+      </span>
+    </div>
+
+    <!-- SDG 6: Clean Water & Sanitation -->
+    <div class="absolute top-14 -right-6 text-[#0D9488] transform rotate-12">
+      <svg class="w-60 h-60 sm:w-72 sm:h-72" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+      </svg>
+      <span class="block text-[11px] font-extrabold tracking-[0.25em] uppercase text-center mt-1">
+        SDG 6 • Clean Water & Sanitation
+      </span>
+    </div>
+
+    <!-- SDG 9: Industry, Innovation & Infrastructure -->
+    <div class="absolute -bottom-10 left-4 text-[#0A2540] transform rotate-6">
+      <svg class="w-64 h-64 sm:w-72 sm:h-72" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+        <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+        <rect x="9" y="9" width="6" height="6"></rect>
+        <path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"></path>
+      </svg>
+      <span class="block text-[11px] font-extrabold tracking-[0.25em] uppercase text-center mt-1">
+        SDG 9 • Innovation & Infrastructure
+      </span>
+    </div>
+
+    <!-- SDG 11: Sustainable Cities & Communities -->
+    <div class="absolute -bottom-6 -right-4 text-[#D97706] transform -rotate-6">
+      <svg class="w-64 h-64 sm:w-72 sm:h-72" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+        <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path>
+        <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path>
+        <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path>
+        <path d="M10 6h4M10 10h4M10 14h4M10 18h4"></path>
+      </svg>
+      <span class="block text-[11px] font-extrabold tracking-[0.25em] uppercase text-center mt-1">
+        SDG 11 • Sustainable Campus
+      </span>
+    </div>
+  </div>
+
+  <!-- ====================================================================== -->
+  <!-- TOP APP & WEBSITE HEADER (STICKY, CLEAN, LIVE IST CLOCK + PWA INSTALL) -->
+  <!-- ====================================================================== -->
+  <header class="sticky top-0 z-30 bg-[#0A2540] text-white shadow-md border-b border-white/10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-2.5 flex items-center justify-between gap-3">
+      <!-- Brand Identity with Full Sairam Institutions & Sai Baba Logo -->
+      <div class="flex items-center gap-3 min-w-0 cursor-pointer" onclick="switchPortal('reporter')">
+        <div class="h-12 sm:h-14 px-2.5 py-1 rounded-xl bg-white flex items-center justify-center shadow-sm shrink-0 border border-white/20">
+          <img
+            src="image_ebe6bc.png"
+            alt="Sairam Institutions & Sri Sai Baba Logo"
+            class="h-full w-auto max-w-[115px] object-contain"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div style="display:none;" class="flex-col items-center justify-center leading-none px-1">
+            <span class="text-[#0054A6] font-display font-extrabold text-sm tracking-tight">Sairam</span>
+            <span class="mt-0.5 px-1 py-0.2 bg-[#8CC63F] text-white text-[7px] font-bold tracking-widest uppercase">Institutions</span>
+          </div>
+        </div>
+        <div class="min-w-0">
+          <h1 class="text-sm sm:text-lg font-bold tracking-tight leading-tight text-white truncate">
+            Sri Sairam Engineering College
+          </h1>
+          <p class="text-[11px] text-slate-300 flex items-center gap-1.5 truncate">
+            <span>Sairam Institutions • Public Campus Portal</span>
+            <span class="hidden sm:inline text-amber-400 font-medium">• UN SDG Aligned</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Controls: Live IST Clock + Desktop Tabs + Share/Install -->
+      <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+        <!-- Strict IST Clock Pill -->
+        <div class="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full bg-white/10 text-[11px] sm:text-xs font-medium text-amber-300 border border-white/10">
+          <i data-lucide="clock" class="w-3.5 h-3.5 text-amber-400 shrink-0"></i>
+          <span id="live-ist-clock">Loading IST...</span>
+        </div>
+
+        <!-- Desktop 3-Portal Switcher -->
+        <nav class="hidden md:flex items-center bg-[#06182b] p-1 rounded-xl border border-white/10" aria-label="Portal Navigation">
+          <button onclick="switchPortal('reporter')" id="desk-tab-reporter" class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all bg-white text-[#0A2540] shadow-sm cursor-pointer">
+            <i data-lucide="globe" class="w-3.5 h-3.5"></i>
+            <span>Campus Feed</span>
+          </button>
+          <button onclick="switchPortal('solver')" id="desk-tab-solver" class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all text-slate-300 hover:text-white cursor-pointer">
+            <i data-lucide="wrench" class="w-3.5 h-3.5"></i>
+            <span>Solver</span>
+          </button>
+          <button onclick="switchPortal('creator')" id="desk-tab-creator" class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all text-slate-300 hover:text-white cursor-pointer">
+            <i data-lucide="lock" class="w-3.5 h-3.5"></i>
+            <span>Creator</span>
+          </button>
+        </nav>
+
+        <!-- Install / Share App Button -->
+        <button onclick="openAppShareModal()" id="pwa-action-btn" class="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl bg-teal-600 hover:bg-teal-500 text-white text-xs font-semibold shadow-sm transition-colors cursor-pointer" title="Share Website or Install App">
+          <i data-lucide="share-2" class="w-3.5 h-3.5"></i>
+          <span class="hidden sm:inline" id="pwa-action-label">Share / App</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ====================================================================== -->
+  <!-- LIVE CREATOR ANNOUNCEMENT BANNER                                       -->
+  <!-- ====================================================================== -->
+  <div id="announcement-banner" class="relative z-20 bg-gradient-to-r from-teal-50 via-white to-amber-50 border-b border-slate-200/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-2 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs">
+      <div class="flex items-center gap-2 text-[#0A2540] font-medium">
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-[#0A2540] text-amber-300 text-[10px] font-bold uppercase tracking-wider shrink-0">
+          <i data-lucide="megaphone" class="w-3 h-3"></i> Notice
+        </span>
+        <span id="banner-text">Open to all Sairam Students, Staff, Drivers, Cleaners & Visitors: Report or support campus issues anytime!</span>
+      </div>
+      <span class="text-[11px] text-slate-500 shrink-0" id="banner-time">Updated: 20 Nov 2026, 07:50 AM IST</span>
+    </div>
+  </div>
+
+  <!-- ====================================================================== -->
+  <!-- MAIN CONTENT CONTAINER                                                 -->
+  <!-- ====================================================================== -->
+  <main id="app-main" class="relative z-10 flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-8">
+    <!-- Dynamically rendered portal content -->
+  </main>
+
+  <!-- ====================================================================== -->
+  <!-- WEBSITE FOOTER                                                         -->
+  <!-- ====================================================================== -->
+  <footer class="relative z-10 max-w-6xl w-full mx-auto px-4 sm:px-6 py-5 border-t border-slate-200/70 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500">
+    <div>Sri Sairam Engineering College • Sairam Institutions Open Campus Website & App</div>
+    <div class="flex items-center gap-2.5">
+      <span id="footer-version">v3.1 • Open Student & Campus Edition</span>
+      <span>•</span>
+      <span>Time Zone: IST (Asia/Kolkata)</span>
+    </div>
+  </footer>
+
+  <!-- ====================================================================== -->
+  <!-- MOBILE BOTTOM NAVIGATION BAR (NATIVE APP FEEL ON PHONES)               -->
+  <!-- ====================================================================== -->
+  <nav class="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 shadow-lg grid grid-cols-3 py-1.5 px-2" aria-label="Mobile Navigation">
+    <button onclick="switchPortal('reporter')" id="mob-tab-reporter" class="flex flex-col items-center justify-center py-1.5 rounded-xl text-[#0A2540] bg-slate-100 font-bold text-[11px] gap-0.5">
+      <i data-lucide="globe" class="w-4 h-4"></i>
+      <span>Campus Feed</span>
+    </button>
+    <button onclick="switchPortal('solver')" id="mob-tab-solver" class="flex flex-col items-center justify-center py-1.5 rounded-xl text-slate-500 font-medium text-[11px] gap-0.5">
+      <i data-lucide="wrench" class="w-4 h-4"></i>
+      <span>Solver</span>
+    </button>
+    <button onclick="switchPortal('creator')" id="mob-tab-creator" class="flex flex-col items-center justify-center py-1.5 rounded-xl text-slate-500 font-medium text-[11px] gap-0.5">
+      <i data-lucide="lock" class="w-4 h-4"></i>
+      <span>Creator</span>
+    </button>
+  </nav>
+
+  <!-- ====================================================================== -->
+  <!-- REPORT A NEW PROBLEM MODAL (OPEN FOR ALL STUDENTS & CAMPUS MEMBERS)    -->
+  <!-- ====================================================================== -->
+  <div id="report-modal" class="hidden fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200 animate-slide-up">
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h3 class="text-lg font-bold text-[#0A2540]">Report Campus Problem</h3>
+          <p class="text-[11px] text-slate-500">Submit directly — available to every student & campus member</p>
+        </div>
+        <button onclick="closeReportModal()" class="p-1.5 rounded-lg hover:bg-slate-100 text-slate-500 cursor-pointer" aria-label="Close modal">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form onsubmit="submitNewIssue(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1.5">I am a</label>
+          <div id="modal-role-pills" class="grid grid-cols-3 gap-1.5"></div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Your Name / College ID</label>
+            <input
+              id="modal-reporter-id"
+              type="text"
+              placeholder="e.g., SEC23CS042 or Rahul"
+              class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs focus:outline-none focus:ring-2 focus:ring-[#0A2540]"
+            />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Location / Block</label>
+            <select id="modal-location-select" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-[#0A2540]"></select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">What needs to be solved?</label>
+          <textarea id="modal-issue-desc" rows="3" required placeholder="e.g., Water not coming properly in boys restroom, Library AC not working, Too much dust in classroom..." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#0A2540]"></textarea>
+        </div>
+
+        <div class="flex items-center justify-between px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600">
+          <span>Recorded Time (IST):</span>
+          <span class="font-semibold text-[#0A2540]" id="modal-ist-preview">--</span>
+        </div>
+
+        <div class="flex items-center justify-end gap-2 pt-2">
+          <button type="button" onclick="closeReportModal()" class="px-4 py-2.5 rounded-xl border border-slate-200 text-xs font-semibold text-slate-600 hover:bg-slate-50 cursor-pointer">
+            Cancel
+          </button>
+          <button type="submit" class="px-5 py-2.5 rounded-xl bg-[#0A2540] hover:bg-[#13385c] text-white text-xs font-semibold shadow-sm cursor-pointer">
+            Submit Report
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ====================================================================== -->
+  <!-- OPTIONAL SAIRAM STUDENT / STAFF SIGN-IN MODAL                          -->
+  <!-- ====================================================================== -->
+  <div id="student-login-modal" class="hidden fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200 animate-slide-up">
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h3 class="text-lg font-bold text-[#0A2540]">Verify Sairam ID (Optional)</h3>
+          <p class="text-[11px] text-slate-500">Save your College ID & Sairam Mail for verified reports</p>
+        </div>
+        <button onclick="closeStudentLoginModal()" class="p-1.5 rounded-lg hover:bg-slate-100 text-slate-500 cursor-pointer" aria-label="Close">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form onsubmit="handleReporterLogin(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1.5">Role</label>
+          <div id="login-modal-role-pills" class="grid grid-cols-3 gap-1.5"></div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Sairam College ID / Staff ID</label>
+          <input
+            id="rep-college-id"
+            type="text"
+            required
+            placeholder="e.g., SEC23CS042"
+            class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#0A2540]"
+          />
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Sairam Mail ID (Optional for Visitors/Workers)</label>
+          <input
+            id="rep-email"
+            type="email"
+            placeholder="yourid@sairam.edu.in"
+            class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#0A2540]"
+          />
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Password / Passcode</label>
+          <input
+            id="rep-password"
+            type="password"
+            required
+            placeholder="••••••••"
+            class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#0A2540]"
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="w-full py-3 rounded-xl bg-[#0A2540] hover:bg-[#13385c] text-white font-semibold text-sm shadow-md transition-all cursor-pointer"
+        >
+          Save & Verify My Profile
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ====================================================================== -->
+  <!-- TOAST MESSAGE CONTAINER                                                -->
+  <!-- ====================================================================== -->
+  <div id="toast-container" class="fixed bottom-20 md:bottom-5 right-4 left-4 sm:left-auto z-50 sm:max-w-sm pointer-events-none flex flex-col gap-2"></div>
+
+  <!-- ====================================================================== -->
+  <!-- SHARE WEBSITE & INSTALL APP MODAL (QR CODE + WHATSAPP + PWA INSTALL)   -->
+  <!-- ====================================================================== -->
+  <div id="app-share-modal" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200 animate-slide-up space-y-5">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="w-8 h-8 rounded-xl bg-[#0A2540] text-amber-400 flex items-center justify-center">
+            <i data-lucide="globe" class="w-4 h-4"></i>
+          </span>
+          <div>
+            <h3 class="text-base font-bold text-[#0A2540]">Share Website & Install App</h3>
+            <p class="text-[11px] text-slate-500">Accessible for every student on any browser</p>
+          </div>
+        </div>
+        <button onclick="closeAppShareModal()" class="p-1.5 rounded-lg hover:bg-slate-100 text-slate-500 cursor-pointer" aria-label="Close">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Native PWA Install Button -->
+      <div class="p-3.5 rounded-xl bg-gradient-to-r from-[#0A2540] to-[#143A61] text-white space-y-2.5">
+        <div class="flex items-center justify-between gap-3">
+          <div>
+            <p class="text-xs font-bold text-amber-300">Use as Website or Mobile App</p>
+            <p class="text-[11px] text-slate-300 mt-0.5" id="pwa-install-status-text">Works on any phone, laptop, or tablet browser</p>
+          </div>
+          <button type="button" onclick="triggerNativePWAInstall()" id="native-install-btn" class="px-3.5 py-2 rounded-xl bg-amber-400 hover:bg-amber-300 text-[#0A2540] font-bold text-xs shadow-sm shrink-0 cursor-pointer">
+            Install App
+          </button>
+        </div>
+        <div id="pwa-manual-guide" class="text-[11px] text-slate-300 pt-2 border-t border-white/10 space-y-1.5">
+          <p class="text-amber-200 font-semibold">How to put the app icon on your phone screen:</p>
+          <p><strong>1. Android (Chrome):</strong> Tap the <span class="text-white font-bold">⋮ (3 dots)</span> at top-right → tap <span class="text-white font-bold">"Add to Home screen"</span> or <span class="text-white font-bold">"Install app"</span>.</p>
+          <p><strong>2. iPhone (Safari):</strong> Tap the <span class="text-white font-bold">Share (↑)</span> button at bottom → tap <span class="text-white font-bold">"Add to Home Screen"</span>.</p>
+          <p><strong>3. Computer (Chrome / Edge):</strong> Click the <span class="text-white font-bold">Install (⊕)</span> icon on the right side of the address bar.</p>
+        </div>
+      </div>
+
+      <!-- Scan QR Code to Open on Any Phone -->
+      <div class="flex items-center gap-4 p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+        <div class="w-24 h-24 rounded-xl bg-white p-1.5 border border-slate-200 shrink-0 flex items-center justify-center">
+          <img id="share-qr-img" src="" alt="Scan QR to open Sairam Campus Care" class="w-full h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div style="display:none;" class="flex-col items-center justify-center text-center text-[10px] font-bold text-[#0A2540]">
+            <span>QR Ready</span>
+            <span class="text-[9px] font-normal text-slate-500">On Live URL</span>
+          </div>
+        </div>
+        <div class="space-y-1 min-w-0">
+          <p class="text-xs font-bold text-[#0A2540]">Scan QR for Instant Access</p>
+          <p class="text-[11px] text-slate-600 leading-relaxed">
+            Every student, staff member, driver & visitor can scan this QR code to open the website immediately.
+          </p>
+        </div>
+      </div>
+
+      <!-- Copy Link & Share via WhatsApp / System Share -->
+      <div class="space-y-2.5">
+        <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-500">Website Link</label>
+        <div class="flex items-center gap-2">
+          <input id="public-app-url-input" type="text" readonly value="" class="flex-1 px-3 py-2 rounded-xl border border-slate-300 bg-slate-50 text-xs font-medium text-slate-700 focus:outline-none" />
+          <button type="button" onclick="copyAppPublicLink()" class="px-3.5 py-2 rounded-xl bg-[#0A2540] hover:bg-[#13385c] text-white text-xs font-semibold shrink-0 cursor-pointer">
+            Copy Link
+          </button>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2 pt-1">
+          <button type="button" onclick="shareViaWhatsApp()" class="inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-xs cursor-pointer">
+            <i data-lucide="message-circle" class="w-4 h-4"></i>
+            <span>Share on WhatsApp</span>
+          </button>
+          <button type="button" onclick="copyFullWebsiteHTML()" class="inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-[#0A2540] text-xs font-bold shadow-xs cursor-pointer">
+            <i data-lucide="code" class="w-4 h-4"></i>
+            <span>Copy Website Code</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================== -->
+  <!-- APPLICATION LOGIC, PWA MANIFEST INJECTION & IST TIMEZONE ENGINE        -->
+  <!-- ====================================================================== -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+    import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+    import {
+      getFirestore,
+      collection,
+      doc,
+      setDoc,
+      updateDoc,
+      deleteDoc,
+      onSnapshot
+    } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+    // ========================================================================
+    // 0. SHARED CLOUD DATABASE ENGINE (REAL-TIME SYNC ACROSS ALL STUDENTS)
+    // ========================================================================
+    const appId = typeof __app_id !== 'undefined' ? __app_id : 'sairam-campus-care-live';
+    let db = null;
+    let auth = null;
+    let cloudUser = null;
+    let cloudConnected = false;
+
+    async function initCloudSync() {
+      try {
+        if (typeof __firebase_config === 'undefined' || !__firebase_config) return;
+        const firebaseConfig = typeof __firebase_config === 'string'
+          ? JSON.parse(__firebase_config)
+          : __firebase_config;
+
+        const app = initializeApp(firebaseConfig);
+        db = getFirestore(app);
+        auth = getAuth(app);
+
+        if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+          const cred = await signInWithCustomToken(auth, __initial_auth_token);
+          cloudUser = cred.user;
+        } else {
+          const cred = await signInAnonymously(auth);
+          cloudUser = cred.user;
+        }
+
+        if (!cloudUser) return;
+        cloudConnected = true;
+
+        // 1. Live Issues Collection (Public across all students, solvers & creator)
+        const issuesRef = collection(db, 'artifacts', appId, 'public', 'data', 'campus_issues');
+        onSnapshot(
+          issuesRef,
+          (snapshot) => {
+            if (snapshot.empty) {
+              // Seed initial realistic campus issues once if database is empty
+              DEFAULT_ISSUES.forEach((item) => {
+                setDoc(doc(issuesRef, item.id), item).catch(() => {});
+              });
+              return;
+            }
+            const liveIssues = [];
+            snapshot.forEach((docSnap) => {
+              liveIssues.push(docSnap.data());
+            });
+            liveIssues.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+            state.issues = liveIssues;
+            saveStorage('sairam_pwa_issues_v3', state.issues);
+            renderApp();
+          },
+          (err) => console.warn('Cloud issues listener note:', err)
+        );
+
+        // 2. Live Campus Settings, Locations, Solver Requests & Approved Solvers
+        const metaRef = collection(db, 'artifacts', appId, 'public', 'data', 'campus_meta');
+        onSnapshot(
+          metaRef,
+          (snapshot) => {
+            snapshot.forEach((docSnap) => {
+              const d = docSnap.data();
+              if (docSnap.id === 'config') {
+                state.systemConfig = { ...DEFAULT_CONFIG, ...d };
+                saveStorage('sairam_pwa_config_v3', state.systemConfig);
+              } else if (docSnap.id === 'locations' && Array.isArray(d.list)) {
+                state.locations = d.list;
+                saveStorage('sairam_pwa_locations_v3', state.locations);
+              } else if (docSnap.id === 'solver_access') {
+                if (Array.isArray(d.requests)) state.solverRequests = d.requests;
+                if (Array.isArray(d.approved)) state.approvedSolvers = d.approved;
+                saveStorage('sairam_pwa_solver_requests_v3', state.solverRequests);
+                saveStorage('sairam_pwa_approved_solvers_v3', state.approvedSolvers);
+
+                // Auto-unlock Solver screen if Creator just clicked OK on another device!
+                if (state.activePortal === 'solver' && !state.solverUser && state.solverWaitingApproval) {
+                  const cleanPhone = (state.solverPhoneInput || '').replace(/\D/g, '');
+                  if (cleanPhone.length === 10 && state.approvedSolvers.includes(cleanPhone)) {
+                    completeApprovedSolverLogin(cleanPhone);
+                    return;
+                  }
+                }
+              }
+            });
+            renderApp();
+          },
+          (err) => console.warn('Cloud meta listener note:', err)
+        );
+      } catch (err) {
+        console.warn('Running in local fallback mode:', err);
+      }
+    }
+
+    async function cloudSaveIssue(issueObj) {
+      if (!cloudConnected || !db || !cloudUser) return;
+      try {
+        const ref = doc(db, 'artifacts', appId, 'public', 'data', 'campus_issues', issueObj.id);
+        await setDoc(ref, issueObj);
+      } catch (e) {
+        console.warn('Cloud save issue error:', e);
+      }
+    }
+
+    async function cloudUpdateIssueFields(issueId, fields) {
+      if (!cloudConnected || !db || !cloudUser) return;
+      try {
+        const ref = doc(db, 'artifacts', appId, 'public', 'data', 'campus_issues', issueId);
+        await updateDoc(ref, fields);
+      } catch (e) {
+        console.warn('Cloud update issue error:', e);
+      }
+    }
+
+    async function cloudDeleteIssueById(issueId) {
+      if (!cloudConnected || !db || !cloudUser) return;
+      try {
+        const ref = doc(db, 'artifacts', appId, 'public', 'data', 'campus_issues', issueId);
+        await deleteDoc(ref);
+      } catch (e) {
+        console.warn('Cloud delete issue error:', e);
+      }
+    }
+
+    async function cloudSaveMeta(docName, payload) {
+      if (!cloudConnected || !db || !cloudUser) return;
+      try {
+        const ref = doc(db, 'artifacts', appId, 'public', 'data', 'campus_meta', docName);
+        await setDoc(ref, payload, { merge: true });
+      } catch (e) {
+        console.warn('Cloud save meta error:', e);
+      }
+    }
+
+    // ========================================================================
+    // 1. REAL PWA MANIFEST, SERVICE WORKER & APP INSTALL / SHARE ENGINE
+    // ========================================================================
+    let deferredInstallPrompt = null;
+
+    (function setupPWA() {
+      try {
+        const iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="110" fill="#0A2540"/><text x="50%" y="56%" dominant-baseline="middle" text-anchor="middle" fill="#F59E0B" font-family="sans-serif" font-weight="800" font-size="210">SS</text></svg>`;
+        const iconUrl = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(iconSvg);
+
+        const manifestObj = {
+          name: 'Sairam Campus Care — Sri Sairam Institutions',
+          short_name: 'Sairam Care',
+          description: 'Official Campus Issue Reporting & Resolution Website and App for Sri Sairam Engineering College & Sairam Institutions.',
+          start_url: window.location.href.split('#')[0],
+          display: 'standalone',
+          orientation: 'portrait',
+          background_color: '#F8FAFC',
+          theme_color: '#0A2540',
+          icons: [
+            { src: iconUrl, sizes: '192x192', type: 'image/svg+xml', purpose: 'any maskable' },
+            { src: iconUrl, sizes: '512x512', type: 'image/svg+xml', purpose: 'any maskable' }
+          ]
+        };
+
+        const manifestBlob = new Blob([JSON.stringify(manifestObj)], { type: 'application/manifest+json' });
+        const manifestURL = URL.createObjectURL(manifestBlob);
+        const linkEl = document.getElementById('pwa-manifest-link');
+        if (linkEl) linkEl.setAttribute('href', manifestURL);
+
+        if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.hostname === 'localhost')) {
+          const swCode = `
+            self.addEventListener('install', (e) => self.skipWaiting());
+            self.addEventListener('activate', (e) => self.clients.claim());
+            self.addEventListener('fetch', (e) => {});
+          `;
+          const swBlob = new Blob([swCode], { type: 'application/javascript' });
+          const swURL = URL.createObjectURL(swBlob);
+          navigator.serviceWorker.register(swURL).catch(() => {});
+        }
+      } catch (e) {
+        console.warn('PWA setup note:', e);
+      }
+    })();
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredInstallPrompt = e;
+      const label = document.getElementById('pwa-action-label');
+      if (label) label.textContent = 'Install App';
+    });
+
+    window.addEventListener('appinstalled', () => {
+      deferredInstallPrompt = null;
+      showToast('Sairam Campus Care installed as an App on your device!', 'success');
+      closeAppShareModal();
+    });
+
+    function getShareableURL() {
+      const href = window.location.href;
+      if (href.startsWith('http://') || href.startsWith('https://')) {
+        return href.split('#')[0];
+      }
+      return '';
+    }
+
+    function openAppShareModal() {
+      const modal = document.getElementById('app-share-modal');
+      const urlInput = document.getElementById('public-app-url-input');
+      const qrImg = document.getElementById('share-qr-img');
+      const shareUrl = getShareableURL();
+
+      if (urlInput) {
+        urlInput.value = shareUrl || 'Host this index.html file online to get your shareable website link';
+      }
+      if (qrImg) {
+        if (shareUrl) {
+          qrImg.style.display = 'block';
+          if (qrImg.nextElementSibling) {
+            qrImg.nextElementSibling.style.display = 'none';
+          }
+          qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${encodeURIComponent(shareUrl)}`;
+        } else {
+          qrImg.style.display = 'none';
+          if (qrImg.nextElementSibling) {
+            qrImg.nextElementSibling.style.display = 'flex';
+          }
+        }
+      }
+      if (modal) {
+        modal.classList.remove('hidden');
+        if (window.lucide) lucide.createIcons();
+      }
+    }
+
+    function closeAppShareModal() {
+      const modal = document.getElementById('app-share-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+      }
+    }
+
+    async function triggerNativePWAInstall() {
+      const statusText = document.getElementById('pwa-install-status-text');
+      const manualGuide = document.getElementById('pwa-manual-guide');
+
+      if (deferredInstallPrompt) {
+        deferredInstallPrompt.prompt();
+        const choiceResult = await deferredInstallPrompt.userChoice;
+        if (choiceResult.outcome === 'accepted') {
+          deferredInstallPrompt = null;
+        }
+        return;
+      }
+
+      if (manualGuide) {
+        manualGuide.classList.add('ring-2', 'ring-amber-400', 'rounded-lg', 'p-2.5', 'bg-white/10');
+      }
+
+      const isInsideIframe = window.self !== window.top;
+      const shareUrl = getShareableURL();
+
+      if (isInsideIframe || !shareUrl) {
+        if (statusText) {
+          statusText.textContent = 'Browsers block 1-click install inside preview frames — follow the 3 steps below!';
+          statusText.className = 'text-[11px] text-amber-300 font-semibold mt-0.5';
+        }
+        showToast('Preview windows block 1-click install. Open on a live HTTPS link or tap your browser Menu (⋮) → Add to Home Screen!', 'info');
+      } else {
+        if (statusText) {
+          statusText.textContent = 'Follow the quick steps below to add the icon to your Home Screen:';
+          statusText.className = 'text-[11px] text-amber-300 font-semibold mt-0.5';
+        }
+        showToast('Tap your browser Menu (⋮ or Share ↑) → "Add to Home Screen"!', 'info');
+      }
+    }
+
+    function copyAppPublicLink() {
+      const shareUrl = getShareableURL();
+      if (!shareUrl) {
+        showToast('Host index.html online first so everyone gets a working website link!', 'info');
+        return;
+      }
+      const urlInput = document.getElementById('public-app-url-input');
+      if (!urlInput) return;
+      urlInput.select();
+      urlInput.setSelectionRange(0, 99999);
+      try {
+        document.execCommand('copy');
+        showToast('Website Link copied! Share it with every student.', 'success');
+      } catch (err) {
+        showToast('Link ready: ' + shareUrl, 'info');
+      }
+    }
+
+    function shareViaWhatsApp() {
+      const shareUrl = getShareableURL();
+      if (!shareUrl) {
+        showToast('Paste the copied Website Code into CodePen / W3Schools Spaces first to get your WhatsApp link!', 'info');
+        return;
+      }
+      const text = `Sri Sairam Engineering College — Campus Care Website (Report problems, support issues & track resolutions in IST): ${shareUrl}`;
+      window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+    }
+
+    function copyFullWebsiteHTML() {
+      const fullHTML = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+      const tempArea = document.createElement('textarea');
+      tempArea.value = fullHTML;
+      document.body.appendChild(tempArea);
+      tempArea.select();
+      try {
+        document.execCommand('copy');
+        showToast('Full Website Code copied! Paste it into CodePen.io/pen (HTML box) → Save → Full Page View for an instant public link!', 'success');
+      } catch (err) {
+        showToast('Use the Copy button at the top-right of the Code panel.', 'info');
+      }
+      document.body.removeChild(tempArea);
+    }
+
+    async function shareViaSystemSheet() {
+      const shareUrl = getShareableURL();
+      if (!shareUrl) {
+        showToast('Upload index.html online first so others can open your link.', 'info');
+        return;
+      }
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: 'Sairam Campus Care — Sri Sairam Institutions',
+            text: 'Report campus issues & track live resolutions in IST.',
+            url: shareUrl
+          });
+        } catch (err) {
+          // User cancelled share sheet
+        }
+      } else {
+        copyAppPublicLink();
+      }
+    }
+
+    // ========================================================================
+    // 2. STRICT INDIAN STANDARD TIME (IST - Asia/Kolkata) FORMATTER
+    // ========================================================================
+    function formatIST(dateInput = new Date()) {
+      try {
+        const d = typeof dateInput === 'number' || typeof dateInput === 'string' ? new Date(dateInput) : dateInput;
+        const datePart = new Intl.DateTimeFormat('en-GB', {
+          timeZone: 'Asia/Kolkata',
+          day: '2-digit',
+          month: 'short',
+          year: 'numeric'
+        }).format(d);
+
+        const timePart = new Intl.DateTimeFormat('en-US', {
+          timeZone: 'Asia/Kolkata',
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: true
+        }).format(d);
+
+        return `${datePart}, ${timePart} IST`;
+      } catch (e) {
+        return '20 Nov 2026, 07:52 AM IST';
+      }
+    }
+
+    function updateClocks() {
+      const nowIST = formatIST(new Date());
+      const clockEl = document.getElementById('live-ist-clock');
+      if (clockEl) clockEl.textContent = nowIST;
+      const modalPreview = document.getElementById('modal-ist-preview');
+      if (modalPreview) modalPreview.textContent = nowIST;
+    }
+
+    // ========================================================================
+    // 3. NOTIFICATION SOUND CHIME (WEB AUDIO API)
+    // ========================================================================
+    function playSolvedNotificationChime() {
+      try {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (!AudioCtx) return;
+        const ctx = new AudioCtx();
+        const now = ctx.currentTime;
+
+        [587.33, 880].forEach((freq, idx) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(freq, now + idx * 0.14);
+          gain.gain.setValueAtTime(0.001, now + idx * 0.14);
+          gain.gain.exponentialRampToValueAtTime(0.18, now + idx * 0.14 + 0.03);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + idx * 0.14 + 0.35);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now + idx * 0.14);
+          osc.stop(now + idx * 0.14 + 0.36);
+        });
+      } catch (e) {
+        // Ignore audio block
+      }
+    }
+
+    // ========================================================================
+    // 4. APPLICATION STATE & LOCALSTORAGE PERSISTENCE
+    // ========================================================================
+    const CREATOR_CREDENTIALS = {
+      emails: ['sec26it290@sairamtap.edu.in', 'sec26it290sairamtap.edu.in'],
+      password: 'Cipher0715',
+      name: 'App Creator (Sri Sairam Engineering College)'
+    };
+
+    const ROLES_LIST = ['Student', 'Staff', 'Bus Driver', 'Cleaner', 'Worker', 'Visitor'];
+
+    const DEFAULT_ISSUES = [
+      {
+        id: 'SRM-101',
+        title: 'Water not coming properly in boys restroom (Main Block 2nd Floor)',
+        location: 'Boys/Girls Restroom',
+        reporterRole: 'Student',
+        reporterId: 'SEC23CS042',
+        status: 'Looking into it',
+        solverReply: 'We are looking into it — Plumber assigned to Main Block 2nd Floor.',
+        replyTimeIST: '19 Nov 2026, 08:40 PM IST',
+        createdAt: Date.now() - 1000 * 60 * 110,
+        createdAtIST: formatIST(Date.now() - 1000 * 60 * 110),
+        upvotes: 24,
+        upvotedBy: []
+      },
+      {
+        id: 'SRM-102',
+        title: 'Library central AC not working near Reference Section',
+        location: 'Library',
+        reporterRole: 'Staff',
+        reporterId: 'STF-LIB-09',
+        status: 'Will be resolved soon',
+        solverReply: 'Will be resolved soon — Chiller unit servicing scheduled tonight.',
+        replyTimeIST: '19 Nov 2026, 07:15 PM IST',
+        createdAt: Date.now() - 1000 * 60 * 240,
+        createdAtIST: formatIST(Date.now() - 1000 * 60 * 240),
+        upvotes: 31,
+        upvotedBy: []
+      },
+      {
+        id: 'SRM-103',
+        title: 'Too much dust in classroom LH-304 benches and projector area',
+        location: 'Classrooms',
+        reporterRole: 'Student',
+        reporterId: 'SEC24EC118',
+        status: 'Pending',
+        solverReply: '',
+        replyTimeIST: '',
+        createdAt: Date.now() - 1000 * 60 * 45,
+        createdAtIST: formatIST(Date.now() - 1000 * 60 * 45),
+        upvotes: 14,
+        upvotedBy: []
+      },
+      {
+        id: 'SRM-104',
+        title: 'College Bus Route 14 rear seat handle broken & loose',
+        location: 'Transport / Bus',
+        reporterRole: 'Bus Driver',
+        reporterId: 'DRV-RT14',
+        status: 'Solved',
+        solverReply: 'Solved — Transport workshop welded and secured seat handle.',
+        replyTimeIST: '19 Nov 2026, 05:30 PM IST',
+        createdAt: Date.now() - 1000 * 60 * 420,
+        createdAtIST: formatIST(Date.now() - 1000 * 60 * 420),
+        upvotes: 9,
+        upvotedBy: []
+      }
+    ];
+
+    const DEFAULT_LOCATIONS = [
+      'Main Block',
+      'Library',
+      'Boys/Girls Restroom',
+      'Classrooms',
+      'Transport / Bus',
+      'Canteen',
+      'Hostel',
+      'Ground'
+    ];
+
+    const DEFAULT_CONFIG = {
+      announcement: 'Open to all Sairam Students, Staff, Drivers, Cleaners & Visitors: Report or support campus issues anytime!',
+      announcementTimeIST: '20 Nov 2026, 07:50 AM IST',
+      appVersion: 'v3.1 • Open Student & Campus Edition',
+      maintenanceMode: false
+    };
+
+    function loadStorage(key, fallback) {
+      try {
+        const val = localStorage.getItem(key);
+        return val ? JSON.parse(val) : fallback;
+      } catch {
+        return fallback;
+      }
+    }
+
+    function saveStorage(key, value) {
+      try {
+        localStorage.setItem(key, JSON.stringify(value));
+      } catch (e) {
+        console.warn('Storage save note:', e);
+      }
+    }
+
+    function escapeHTML(str) {
+      if (str === null || str === undefined) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    // Generate or load an automatic browser visitor ID so every student can support & report immediately without login walls
+    function getPublicVisitorKey() {
+      let key = loadStorage('sairam_public_browser_key_v3', '');
+      if (!key) {
+        key = 'WEB-' + Math.floor(10000 + Math.random() * 89999);
+        saveStorage('sairam_public_browser_key_v3', key);
+      }
+      return key;
+    }
+
+    let state = {
+      activePortal: 'reporter',
+      issues: loadStorage('sairam_pwa_issues_v3', DEFAULT_ISSUES),
+      locations: loadStorage('sairam_pwa_locations_v3', DEFAULT_LOCATIONS),
+      solverRequests: loadStorage('sairam_pwa_solver_requests_v3', []),
+      approvedSolvers: loadStorage('sairam_pwa_approved_solvers_v3', ['9840012345']),
+      systemConfig: loadStorage('sairam_pwa_config_v3', DEFAULT_CONFIG),
+
+      // Optional verified student/staff session (Website works immediately even when null!)
+      reporterUser: loadStorage('sairam_saved_reporter_session_v3', null),
+      publicBrowserKey: getPublicVisitorKey(),
+      solverUser: loadStorage('sairam_saved_solver_session_v3', null),
+      creatorUser: loadStorage('sairam_saved_creator_session_v3', null),
+
+      // Reporter UI filters
+      loginModalSelectedRole: 'Student',
+      reporterFilterStatus: 'All',
+      reporterSortBy: 'latest',
+      modalSelectedRole: 'Student',
+      announcedSolvedIds: loadStorage('sairam_announced_solved_ids_v3', []),
+
+      // Solver UI state
+      solverPhoneInput: loadStorage('sairam_saved_solver_phone_v3', ''),
+      solverWaitingApproval: false,
+      solverBoxTab: 'active',
+      solverSort: 'priority'
+    };
+
+    // ========================================================================
+    // 5. TOAST NOTIFICATION & UI HELPERS
+    // ========================================================================
+    function showToast(message, type = 'info') {
+      const container = document.getElementById('toast-container');
+      if (!container) return;
+
+      const toast = document.createElement('div');
+      const bgClass =
+        type === 'error'
+          ? 'bg-red-950 text-white border-red-700'
+          : type === 'success'
+          ? 'bg-[#0A2540] text-white border-teal-400/50'
+          : 'bg-white text-[#0A2540] border-slate-200';
+
+      toast.className = `pointer-events-auto flex items-start gap-2.5 px-4 py-3 rounded-xl shadow-lg border text-xs font-medium animate-slide-up ${bgClass}`;
+      toast.innerHTML = `
+        <span class="flex-1 leading-relaxed">${escapeHTML(message)}</span>
+        <button onclick="this.parentElement.remove()" class="opacity-60 hover:opacity-100 font-bold ml-1 cursor-pointer">✕</button>
+      `;
+      container.appendChild(toast);
+
+      setTimeout(() => {
+        if (toast.parentElement) toast.remove();
+      }, 4500);
+    }
+
+    function updateHeaderAndBanner() {
+      const bannerText = document.getElementById('banner-text');
+      const bannerTime = document.getElementById('banner-time');
+      const footerVer = document.getElementById('footer-version');
+
+      if (bannerText) bannerText.textContent = state.systemConfig.announcement;
+      if (bannerTime) bannerTime.textContent = `Updated: ${state.systemConfig.announcementTimeIST}`;
+      if (footerVer) footerVer.textContent = state.systemConfig.appVersion;
+    }
+
+    function switchPortal(portal) {
+      state.activePortal = portal;
+
+      ['reporter', 'solver', 'creator'].forEach((p) => {
+        const deskBtn = document.getElementById(`desk-tab-${p}`);
+        const mobBtn = document.getElementById(`mob-tab-${p}`);
+
+        if (deskBtn) {
+          if (p === portal) {
+            deskBtn.className =
+              p === 'creator'
+                ? 'flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all bg-amber-400 text-[#0A2540] shadow-sm cursor-pointer'
+                : p === 'solver'
+                ? 'flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all bg-teal-500 text-white shadow-sm cursor-pointer'
+                : 'flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all bg-white text-[#0A2540] shadow-sm cursor-pointer';
+          } else {
+            deskBtn.className =
+              'flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all text-slate-300 hover:text-white cursor-pointer';
+          }
+        }
+
+        if (mobBtn) {
+          if (p === portal) {
+            mobBtn.className =
+              'flex flex-col items-center justify-center py-1.5 rounded-xl text-[#0A2540] bg-slate-100 font-bold text-[11px] gap-0.5';
+          } else {
+            mobBtn.className =
+              'flex flex-col items-center justify-center py-1.5 rounded-xl text-slate-500 font-medium text-[11px] gap-0.5';
+          }
+        }
+      });
+
+      renderApp();
+    }
+
+    function getStatusBadgeHTML(status) {
+      if (status === 'Solved') {
+        return `<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">✓ Solved</span>`;
+      }
+      if (status === 'Looking into it') {
+        return `<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-sky-50 text-sky-700 border border-sky-200">⚙ Looking into it</span>`;
+      }
+      if (status === 'Will be resolved soon') {
+        return `<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">⏱ Will be resolved soon</span>`;
+      }
+      return `<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 border border-slate-200">• Pending</span>`;
+    }
+
+    // ========================================================================
+    // 6. PORTAL A: OPEN PUBLIC WEBSITE FEED FOR EVERY STUDENT & CAMPUS MEMBER
+    // ========================================================================
+    function renderReporterPortal() {
+      // Trigger chime if any issue is newly marked Solved
+      const newlySolved = state.issues.filter(
+        (i) => i.status === 'Solved' && !state.announcedSolvedIds.includes(i.id)
+      );
+      if (newlySolved.length > 0) {
+        playSolvedNotificationChime();
+        state.announcedSolvedIds = [
+          ...state.announcedSolvedIds,
+          ...newlySolved.map((i) => i.id)
+        ];
+        saveStorage('sairam_announced_solved_ids_v3', state.announcedSolvedIds);
+      }
+
+      let list = [...state.issues];
+      if (state.reporterFilterStatus !== 'All') {
+        list = list.filter((i) => i.status === state.reporterFilterStatus);
+      }
+      if (state.reporterSortBy === 'support') {
+        list.sort((a, b) => b.upvotes - a.upvotes);
+      } else {
+        list.sort((a, b) => b.createdAt - a.createdAt);
+      }
+
+      const activeUserKey = state.reporterUser ? state.reporterUser.collegeId : state.publicBrowserKey;
+      const activeCount = state.issues.filter((i) => i.status !== 'Solved').length;
+      const solvedCount = state.issues.filter((i) => i.status === 'Solved').length;
+
+      return `
+        <div class="space-y-6 animate-slide-up">
+          <!-- Open Campus Hero Banner (Immediately accessible to every student on the website!) -->
+          <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-5 sm:p-6 border border-slate-200/90 shadow-xs flex flex-col lg:flex-row lg:items-center justify-between gap-5">
+            <div class="flex items-start sm:items-center gap-4">
+              <div class="hidden sm:flex p-2 rounded-2xl bg-slate-50 border border-slate-200/80 shrink-0">
+                <img
+                  src="image_ebe6bc.png"
+                  alt="Sri Sairam Institutions & Sai Baba Logo"
+                  class="h-16 w-auto object-contain"
+                  onerror="this.parentElement.style.display='none';"
+                />
+              </div>
+              <div>
+                <div class="flex flex-wrap items-center gap-2 mb-1">
+                  <span class="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-[11px] font-bold">
+                    ● Open Campus Website
+                  </span>
+                  ${
+                    state.reporterUser
+                      ? `<span class="px-2.5 py-0.5 rounded-md bg-[#0A2540] text-white text-xs font-bold">${escapeHTML(state.reporterUser.collegeId)} (${escapeHTML(state.reporterUser.role)})</span>`
+                      : `<span class="text-xs text-slate-500">Available for all Students, Staff, Drivers, Cleaners & Visitors</span>`
+                  }
+                </div>
+                <h2 class="text-lg sm:text-xl font-bold text-[#0A2540]">
+                  Sairam Campus Issue & Resolution Board
+                </h2>
+                <p class="text-xs text-slate-500 mt-0.5">
+                  <strong>${activeCount}</strong> active issues • <strong>${solvedCount}</strong> solved • Report any problem or click <strong>Support</strong> to prioritize it.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2.5 shrink-0">
+              <button
+                onclick="openReportModal()"
+                class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#0A2540] hover:bg-[#143a61] text-white text-xs sm:text-sm font-semibold shadow-sm transition-all cursor-pointer"
+              >
+                <i data-lucide="plus" class="w-4 h-4 text-amber-400"></i>
+                <span>Report a Problem</span>
+              </button>
+
+              ${
+                state.reporterUser
+                  ? `<button
+                      onclick="logoutReporter()"
+                      class="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl border border-slate-200 hover:bg-slate-100 text-slate-600 text-xs font-semibold cursor-pointer"
+                      title="Sign Out Verified ID"
+                    >
+                      <i data-lucide="log-out" class="w-4 h-4"></i>
+                      <span>Sign Out</span>
+                    </button>`
+                  : `<button
+                      onclick="openStudentLoginModal()"
+                      class="inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 hover:bg-slate-100 text-[#0A2540] text-xs font-semibold cursor-pointer"
+                      title="Optional: Save your Sairam ID & Mail"
+                    >
+                      <i data-lucide="user-check" class="w-3.5 h-3.5 text-teal-600"></i>
+                      <span>Sairam ID Sign In</span>
+                    </button>`
+              }
+            </div>
+          </div>
+
+          <!-- Filter Pills & Sort -->
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1">
+              ${['All', 'Pending', 'Looking into it', 'Will be resolved soon', 'Solved']
+                .map(
+                  (st) => `
+                <button
+                  onclick="setReporterFilter('${st}')"
+                  class="px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
+                    state.reporterFilterStatus === st
+                      ? 'bg-[#0A2540] text-white shadow-xs'
+                      : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'
+                  }"
+                >
+                  ${st}
+                </button>
+              `
+                )
+                .join('')}
+            </div>
+
+            <select
+              onchange="setReporterSort(this.value)"
+              class="bg-white border border-slate-200 rounded-xl px-3 py-1.5 text-xs font-semibold text-slate-700 focus:outline-none"
+            >
+              <option value="latest" ${state.reporterSortBy === 'latest' ? 'selected' : ''}>Latest (IST)</option>
+              <option value="support" ${state.reporterSortBy === 'support' ? 'selected' : ''}>Most Supported</option>
+            </select>
+          </div>
+
+          <!-- Issue Feed Cards -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            ${
+              list.length === 0
+                ? `<div class="col-span-full bg-white/90 rounded-2xl p-10 text-center border border-slate-200 text-sm text-slate-500">No problems reported in this category yet.</div>`
+                : list
+                    .map((issue) => {
+                      const supported = issue.upvotedBy && issue.upvotedBy.includes(activeUserKey);
+                      return `
+                  <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-md transition-all flex flex-col justify-between gap-4">
+                    <div>
+                      <div class="flex flex-wrap items-center justify-between gap-2 mb-2.5">
+                        <div class="flex items-center gap-1.5">
+                          <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-700 text-xs font-semibold">
+                            <i data-lucide="map-pin" class="w-3 h-3 text-teal-600"></i>
+                            ${escapeHTML(issue.location)}
+                          </span>
+                          <span class="px-2 py-0.5 rounded-md bg-amber-50 text-amber-800 border border-amber-200/70 text-[11px] font-medium">
+                            ${escapeHTML(issue.reporterRole)}
+                          </span>
+                        </div>
+                        ${getStatusBadgeHTML(issue.status)}
+                      </div>
+
+                      <h3 class="text-base font-bold text-[#0A2540] leading-snug">
+                        ${escapeHTML(issue.title)}
+                      </h3>
+
+                      ${
+                        issue.solverReply
+                          ? `
+                        <div class="mt-3 p-3 rounded-xl ${
+                          issue.status === 'Solved'
+                            ? 'bg-emerald-50/80 border-emerald-200 text-emerald-900'
+                            : 'bg-teal-50/70 border-teal-200 text-teal-900'
+                        } border text-xs">
+                          <div class="font-semibold flex items-center justify-between gap-2">
+                            <span>Solver Reply:</span>
+                            <span class="text-[10px] font-normal opacity-80">${escapeHTML(issue.replyTimeIST)}</span>
+                          </div>
+                          <p class="mt-0.5">${escapeHTML(issue.solverReply)}</p>
+                        </div>
+                      `
+                          : ''
+                      }
+                    </div>
+
+                    <div class="pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
+                      <div class="flex items-center gap-1.5 text-[11px] font-medium text-slate-500">
+                        <i data-lucide="clock" class="w-3.5 h-3.5 text-slate-400"></i>
+                        <span>${escapeHTML(issue.createdAtIST)}</span>
+                      </div>
+
+                      <button
+                        onclick="toggleIssueSupport('${issue.id}')"
+                        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                          supported
+                            ? 'bg-[#0A2540] text-amber-300 shadow-xs'
+                            : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                        }"
+                      >
+                        <i data-lucide="thumbs-up" class="w-3.5 h-3.5"></i>
+                        <span>Support</span>
+                        <span class="px-1.5 py-0.2 rounded-full bg-white/20 text-[11px]">${issue.upvotes}</span>
+                      </button>
+                    </div>
+                  </div>
+                `;
+                    })
+                    .join('')
+            }
+          </div>
+        </div>
+      `;
+    }
+
+    // Optional Sairam Student/Staff Sign-in Modal Controls
+    function openStudentLoginModal() {
+      state.loginModalSelectedRole = state.reporterUser?.role || 'Student';
+      renderLoginModalRolePills();
+      document.getElementById('student-login-modal')?.classList.remove('hidden');
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function closeStudentLoginModal() {
+      document.getElementById('student-login-modal')?.classList.add('hidden');
+    }
+
+    function renderLoginModalRolePills() {
+      const container = document.getElementById('login-modal-role-pills');
+      if (!container) return;
+      container.innerHTML = ROLES_LIST.map(
+        (role) => `
+        <button
+          type="button"
+          onclick="state.loginModalSelectedRole = '${role}'; renderLoginModalRolePills();"
+          class="py-1.5 px-2 rounded-lg text-xs font-medium border transition-all cursor-pointer ${
+            state.loginModalSelectedRole === role
+              ? 'bg-teal-50 border-teal-600 text-teal-800 font-semibold'
+              : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'
+          }"
+        >
+          ${role}
+        </button>
+      `
+      ).join('');
+    }
+
+    function handleReporterLogin(e) {
+      e.preventDefault();
+      const collegeId = (document.getElementById('rep-college-id')?.value || '').trim().toUpperCase();
+      const email = (document.getElementById('rep-email')?.value || '').trim().toLowerCase();
+      const password = document.getElementById('rep-password')?.value || '';
+
+      if (!collegeId || !password) {
+        showToast('Please enter your ID and Password.', 'error');
+        return;
+      }
+
+      if (email && !email.endsWith('@sairam.edu.in') && !email.endsWith('@sairamtap.edu.in')) {
+        showToast('Sairam Mail ID must end with @sairam.edu.in or @sairamtap.edu.in.', 'error');
+        return;
+      }
+
+      const sessionObj = {
+        collegeId,
+        email: email || 'campus-member@sairam.edu.in',
+        role: state.loginModalSelectedRole
+      };
+
+      state.reporterUser = sessionObj;
+      saveStorage('sairam_saved_reporter_session_v3', sessionObj);
+      closeStudentLoginModal();
+      showToast(`Verified & Saved: ${collegeId} (${state.loginModalSelectedRole})`, 'success');
+      renderApp();
+    }
+
+    function logoutReporter() {
+      state.reporterUser = null;
+      localStorage.removeItem('sairam_saved_reporter_session_v3');
+      showToast('Signed out of verified ID. You can still browse & report openly!', 'info');
+      renderApp();
+    }
+
+    function setReporterFilter(st) {
+      state.reporterFilterStatus = st;
+      renderApp();
+    }
+
+    function setReporterSort(val) {
+      state.reporterSortBy = val;
+      renderApp();
+    }
+
+    function toggleIssueSupport(issueId) {
+      const uid = state.reporterUser ? state.reporterUser.collegeId : state.publicBrowserKey;
+      let updatedItem = null;
+      state.issues = state.issues.map((item) => {
+        if (item.id !== issueId) return item;
+        const already = item.upvotedBy && item.upvotedBy.includes(uid);
+        updatedItem = {
+          ...item,
+          upvotes: already ? Math.max(0, item.upvotes - 1) : item.upvotes + 1,
+          upvotedBy: already
+            ? item.upvotedBy.filter((x) => x !== uid)
+            : [...(item.upvotedBy || []), uid]
+        };
+        return updatedItem;
+      });
+      saveStorage('sairam_pwa_issues_v3', state.issues);
+      if (updatedItem) {
+        cloudUpdateIssueFields(issueId, {
+          upvotes: updatedItem.upvotes,
+          upvotedBy: updatedItem.upvotedBy
+        });
+      }
+      renderApp();
+    }
+
+    // ========================================================================
+    // 8. PORTAL C: CREATOR / OWNER CONSOLE
+    // ========================================================================
+    function renderCreatorPortal() {
+      if (!state.creatorUser) {
+        return `
+          <div class="max-w-md mx-auto mt-2 sm:mt-6 animate-slide-up">
+            <div class="bg-[#0A2540] text-white rounded-2xl shadow-2xl border border-amber-400/30 p-6 sm:p-8">
+              <div class="text-center mb-6">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 text-xs font-bold border border-amber-400/40 mb-3">
+                  <i data-lucide="lock" class="w-3.5 h-3.5"></i> Exclusive Creator Lock
+                </span>
+                <h2 class="text-2xl font-bold text-white">Creator Console</h2>
+                <p class="text-xs text-slate-300 mt-1">
+                  Approve Solver logins, update campus notices & manage your website anytime.
+                </p>
+              </div>
+
+              <form onsubmit="handleCreatorLogin(event)" class="space-y-4">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-300 mb-1">Creator Mail ID</label>
+                  <input
+                    id="creator-email-input"
+                    type="text"
+                    required
+                    placeholder="sec26it290@sairamtap.edu.in"
+                    class="w-full px-3.5 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400"
+                  />
+                </div>
+
+                <div>
+                  <label class="block text-xs font-semibold text-slate-300 mb-1">Password</label>
+                  <input
+                    id="creator-pass-input"
+                    type="password"
+                    required
+                    placeholder="••••••••••"
+                    class="w-full px-3.5 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  class="w-full py-3 rounded-xl bg-amber-400 hover:bg-amber-300 text-[#0A2540] font-bold text-sm shadow-md transition-all cursor-pointer"
+                >
+                  Open Creator Console
+                </button>
+              </form>
+            </div>
+          </div>
+        `;
+      }
+
+      return `
+        <div class="space-y-6 animate-slide-up">
+          <div class="bg-[#0A2540] text-white rounded-2xl p-5 shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="px-2.5 py-0.5 rounded bg-amber-400 text-[#0A2540] text-xs font-extrabold uppercase">
+                  Creator Mode
+                </span>
+                <span class="text-xs text-slate-300">Verified: ${escapeHTML(state.creatorUser.verifiedAtIST)}</span>
+              </div>
+              <h2 class="text-lg font-bold mt-1">${escapeHTML(state.creatorUser.name)}</h2>
+              <p class="text-xs text-slate-300">${escapeHTML(state.creatorUser.email)}</p>
+            </div>
+
+            <button
+              onclick="logoutCreator()"
+              class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold self-start sm:self-center cursor-pointer"
+            >
+              <i data-lucide="log-out" class="w-4 h-4"></i>
+              <span>Lock & Exit</span>
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="bg-white/95 rounded-2xl p-5 border-2 border-amber-300 shadow-xs space-y-4">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2 text-[#0A2540] font-bold text-base">
+                  <i data-lucide="user-check" class="w-5 h-5 text-amber-500"></i>
+                  <h3>Solver Login Requests (${state.solverRequests.length})</h3>
+                </div>
+                <span class="text-[11px] font-semibold text-amber-800 bg-amber-100 px-2.5 py-0.5 rounded-full">
+                  Action Needed
+                </span>
+              </div>
+
+              ${
+                state.solverRequests.length === 0
+                  ? `<p class="text-xs text-slate-500 bg-slate-50 p-3.5 rounded-xl border border-slate-200/80">No pending Solver phone requests right now.</p>`
+                  : `<div class="space-y-2.5">
+                      ${state.solverRequests
+                        .map(
+                          (req) => `
+                        <div class="flex items-center justify-between gap-3 p-3 rounded-xl bg-amber-50/70 border border-amber-200">
+                          <div>
+                            <p class="text-sm font-bold text-[#0A2540]">+91 ${escapeHTML(req.phone)}</p>
+                            <p class="text-[11px] text-slate-600">Requested: ${escapeHTML(req.requestedAtIST)}</p>
+                          </div>
+                          <div class="flex items-center gap-1.5">
+                            <button
+                              onclick="approveSolverRequest('${req.phone}')"
+                              class="px-3.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-xs cursor-pointer"
+                            >
+                              OK (Approve)
+                            </button>
+                            <button
+                              onclick="rejectSolverRequest('${req.phone}')"
+                              class="px-2.5 py-1.5 rounded-lg bg-white border border-slate-300 hover:bg-red-50 text-red-600 text-xs font-semibold cursor-pointer"
+                            >
+                              Deny
+                            </button>
+                          </div>
+                        </div>
+                      `
+                        )
+                        .join('')}
+                    </div>`
+              }
+
+              <div class="pt-3 border-t border-slate-100">
+                <p class="text-xs font-bold text-slate-700 mb-2">Approved Solver Phones (+91):</p>
+                <div class="flex flex-wrap gap-2">
+                  ${state.approvedSolvers
+                    .map(
+                      (ph) => `
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-teal-50 border border-teal-200 text-teal-900 text-xs font-semibold">
+                      <span>+91 ${escapeHTML(ph)}</span>
+                      <button onclick="removeApprovedSolver('${ph}')" class="text-teal-600 hover:text-red-600 cursor-pointer" title="Revoke">✕</button>
+                    </span>
+                  `
+                    )
+                    .join('')}
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white/95 rounded-2xl p-5 border border-slate-200 shadow-xs space-y-4">
+              <div class="flex items-center gap-2 text-[#0A2540] font-bold text-base">
+                <i data-lucide="megaphone" class="w-5 h-5 text-teal-600"></i>
+                <h3>Update Website Notice & Controls</h3>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Campus Notice Banner</label>
+                <textarea
+                  id="creator-banner-input"
+                  rows="2"
+                  class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs focus:outline-none focus:ring-2 focus:ring-[#0A2540]"
+                >${escapeHTML(state.systemConfig.announcement)}</textarea>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">Website Version</label>
+                  <input
+                    id="creator-version-input"
+                    type="text"
+                    value="${escapeHTML(state.systemConfig.appVersion)}"
+                    class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs"
+                  />
+                </div>
+                <div class="flex items-end">
+                  <label class="flex items-center gap-2 cursor-pointer bg-slate-50 px-3 py-2 rounded-xl border border-slate-200 w-full">
+                    <input
+                      id="creator-pause-check"
+                      type="checkbox"
+                      ${state.systemConfig.maintenanceMode ? 'checked' : ''}
+                      class="rounded text-[#0A2540]"
+                    />
+                    <span class="text-xs font-semibold text-slate-700">Pause New Reports</span>
+                  </label>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                onclick="publishCreatorConfig()"
+                class="px-4 py-2.5 rounded-xl bg-[#0A2540] hover:bg-[#13385c] text-white text-xs font-semibold cursor-pointer"
+              >
+                Publish Live Update
+              </button>
+            </div>
+
+            <div class="bg-white/95 rounded-2xl p-5 border border-slate-200 shadow-xs space-y-4">
+              <div class="flex items-center gap-2 text-[#0A2540] font-bold text-base">
+                <i data-lucide="building-2" class="w-5 h-5 text-amber-600"></i>
+                <h3>Sairam Campus Blocks & Locations</h3>
+              </div>
+
+              <form onsubmit="addCampusLocation(event)" class="flex gap-2">
+                <input
+                  id="creator-new-loc"
+                  type="text"
+                  placeholder="Add block (e.g., Sigma Auditorium)..."
+                  class="flex-1 px-3 py-2 rounded-xl border border-slate-300 text-xs focus:outline-none focus:ring-2 focus:ring-[#0A2540]"
+                />
+                <button type="submit" class="px-4 py-2 rounded-xl bg-[#0A2540] text-white text-xs font-semibold cursor-pointer">
+                  Add
+                </button>
+              </form>
+
+              <div class="flex flex-wrap gap-2">
+                ${state.locations
+                  .map(
+                    (loc, idx) => `
+                  <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 text-slate-700 text-xs font-medium">
+                    <span>${escapeHTML(loc)}</span>
+                    <button onclick="removeCampusLocation(${idx})" class="text-slate-400 hover:text-red-600 cursor-pointer">✕</button>
+                  </span>
+                `
+                  )
+                  .join('')}
+              </div>
+            </div>
+
+            <div class="bg-white/95 rounded-2xl p-5 border border-slate-200 shadow-xs space-y-3">
+              <div class="flex items-center gap-2 text-[#0A2540] font-bold text-base">
+                <i data-lucide="trash-2" class="w-5 h-5 text-red-600"></i>
+                <h3>Manage Reports (${state.issues.length})</h3>
+              </div>
+
+              <div class="max-h-60 overflow-y-auto space-y-2 pr-1">
+                ${state.issues
+                  .map(
+                    (item) => `
+                  <div class="flex items-center justify-between gap-3 p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 text-xs">
+                    <div class="min-w-0">
+                      <p class="font-semibold text-slate-800 truncate">${escapeHTML(item.title)}</p>
+                      <p class="text-[11px] text-slate-500">${escapeHTML(item.location)} • ${escapeHTML(item.status)}</p>
+                    </div>
+                    <button
+                      onclick="deleteCampusIssue('${item.id}')"
+                      class="px-2.5 py-1.5 rounded-lg text-red-600 hover:bg-red-50 font-semibold shrink-0 cursor-pointer"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                `
+                  )
+                  .join('')}
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function handleCreatorLogin(e) {
+      e.preventDefault();
+      const emailVal = (document.getElementById('creator-email-input')?.value || '').trim().toLowerCase();
+      const passVal = document.getElementById('creator-pass-input')?.value || '';
+
+      if (CREATOR_CREDENTIALS.emails.includes(emailVal) && passVal === CREATOR_CREDENTIALS.password) {
+        const session = {
+          name: CREATOR_CREDENTIALS.name,
+          email: emailVal,
+          verifiedAtIST: formatIST(new Date())
+        };
+        state.creatorUser = session;
+        saveStorage('sairam_saved_creator_session_v3', session);
+        showToast('Creator Console Unlocked!', 'success');
+        renderApp();
+      } else {
+        showToast('Access Denied: Invalid Creator Mail ID or Password.', 'error');
+      }
+    }
+
+    function logoutCreator() {
+      state.creatorUser = null;
+      localStorage.removeItem('sairam_saved_creator_session_v3');
+      showToast('Creator Console Locked.', 'info');
+      renderApp();
+    }
+
+    // ========================================================================
+    // 7. REPORT MODAL & PORTAL B: SOLVER PORTAL
+    // ========================================================================
+    function openReportModal() {
+      if (state.systemConfig.maintenanceMode) {
+        showToast('New submissions are temporarily paused by Creator.', 'error');
+        return;
+      }
+      state.modalSelectedRole = state.reporterUser?.role || 'Student';
+      const roleContainer = document.getElementById('modal-role-pills');
+      if (roleContainer) {
+        roleContainer.innerHTML = ROLES_LIST.map(
+          (role) => `
+          <button
+            type="button"
+            onclick="selectModalRole('${role}')"
+            class="py-1.5 px-2 rounded-lg text-xs font-medium border transition-all cursor-pointer ${
+              state.modalSelectedRole === role
+                ? 'bg-[#0A2540] text-white border-[#0A2540]'
+                : 'bg-white text-slate-600 border-slate-200'
+            }"
+          >
+            ${role}
+          </button>
+        `
+        ).join('');
+      }
+
+      const locSelect = document.getElementById('modal-location-select');
+      if (locSelect) {
+        locSelect.innerHTML = state.locations
+          .map((loc) => `<option value="${escapeHTML(loc)}">${escapeHTML(loc)}</option>`)
+          .join('');
+      }
+
+      const idInput = document.getElementById('modal-reporter-id');
+      if (idInput && state.reporterUser?.collegeId) {
+        idInput.value = state.reporterUser.collegeId;
+      }
+
+      updateClocks();
+      document.getElementById('report-modal')?.classList.remove('hidden');
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function selectModalRole(role) {
+      state.modalSelectedRole = role;
+      const roleContainer = document.getElementById('modal-role-pills');
+      if (roleContainer) {
+        roleContainer.innerHTML = ROLES_LIST.map(
+          (r) => `
+          <button
+            type="button"
+            onclick="selectModalRole('${r}')"
+            class="py-1.5 px-2 rounded-lg text-xs font-medium border transition-all cursor-pointer ${
+              state.modalSelectedRole === r
+                ? 'bg-[#0A2540] text-white border-[#0A2540]'
+                : 'bg-white text-slate-600 border-slate-200'
+            }"
+          >
+            ${r}
+          </button>
+        `
+        ).join('');
+      }
+    }
+
+    function closeReportModal() {
+      document.getElementById('report-modal')?.classList.add('hidden');
+    }
+
+    function submitNewIssue(e) {
+      e.preventDefault();
+      const desc = (document.getElementById('modal-issue-desc')?.value || '').trim();
+      const location = document.getElementById('modal-location-select')?.value || state.locations[0] || 'Main Block';
+      const customId = (document.getElementById('modal-reporter-id')?.value || '').trim().toUpperCase();
+
+      if (!desc) {
+        showToast('Please describe the problem briefly.', 'error');
+        return;
+      }
+
+      const now = new Date();
+      const newIssue = {
+        id: `SRM-${Math.floor(105 + Math.random() * 890)}`,
+        title: desc,
+        location,
+        reporterRole: state.modalSelectedRole,
+        reporterId: customId || state.reporterUser?.collegeId || state.publicBrowserKey,
+        status: 'Pending',
+        solverReply: '',
+        replyTimeIST: '',
+        createdAt: now.getTime(),
+        createdAtIST: formatIST(now),
+        upvotes: 1,
+        upvotedBy: [state.reporterUser ? state.reporterUser.collegeId : state.publicBrowserKey]
+      };
+
+      state.issues = [newIssue, ...state.issues];
+      saveStorage('sairam_pwa_issues_v3', state.issues);
+      cloudSaveIssue(newIssue);
+      document.getElementById('modal-issue-desc').value = '';
+      closeReportModal();
+      showToast('Problem published live for all students & solvers (IST stamped)!', 'success');
+      renderApp();
+    }
+
+    function renderSolverPortal() {
+      if (!state.solverUser) {
+        const cleanPhone = (state.solverPhoneInput || '').replace(/\D/g, '');
+        const isAlreadyApproved = cleanPhone.length === 10 && state.approvedSolvers.includes(cleanPhone);
+
+        return `
+          <div class="max-w-md mx-auto mt-4 sm:mt-8 animate-slide-up">
+            <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-slate-200/90 p-6 sm:p-8">
+              <div class="text-center mb-6">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-50 text-teal-700 text-xs font-semibold border border-teal-200 mb-3">
+                  <i data-lucide="wrench" class="w-3.5 h-3.5"></i> Solver Desk Verification
+                </span>
+                <h2 class="text-2xl font-bold text-[#0A2540]">Solver Portal Sign In</h2>
+                <p class="text-xs sm:text-sm text-slate-500 mt-1">
+                  Maintenance & Facility Heads • Enter registered mobile number
+                </p>
+              </div>
+
+              <form onsubmit="requestSolverLoginApproval(event)" class="space-y-4">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1.5">
+                    Mobile Number (India +91)
+                  </label>
+                  <div class="flex items-center rounded-xl border border-slate-300 overflow-hidden focus-within:ring-2 focus-within:ring-teal-600 bg-white">
+                    <span class="px-3.5 py-2.5 bg-slate-100 text-slate-700 font-bold text-sm border-r border-slate-300">
+                      +91
+                    </span>
+                    <input
+                      id="solver-phone-input"
+                      type="tel"
+                      maxLength="10"
+                      value="${escapeHTML(state.solverPhoneInput)}"
+                      oninput="state.solverPhoneInput = this.value.replace(/\\D/g, ''); saveStorage('sairam_saved_solver_phone_v3', state.solverPhoneInput);"
+                      placeholder="9840012345"
+                      class="w-full px-3.5 py-2.5 text-sm font-medium tracking-wider focus:outline-none"
+                    />
+                  </div>
+                </div>
+
+                ${
+                  isAlreadyApproved
+                    ? `<button
+                        type="button"
+                        onclick="completeApprovedSolverLogin('${cleanPhone}')"
+                        class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm shadow-md transition-all cursor-pointer"
+                      >
+                        Enter Solver Desk (+91 ${cleanPhone})
+                      </button>`
+                    : `<button
+                        type="submit"
+                        class="w-full py-3 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-semibold text-sm shadow-md transition-all cursor-pointer"
+                      >
+                        Request Creator Approval to Enter
+                      </button>`
+                }
+              </form>
+
+              ${
+                state.solverWaitingApproval
+                  ? `<div class="mt-4 p-3.5 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-900 space-y-2">
+                      <p class="font-semibold">Waiting for Creator approval for +91 ${escapeHTML(cleanPhone)}...</p>
+                      <p class="text-[11px] text-amber-800">Once the Creator clicks OK in Creator Console, your desk unlocks automatically.</p>
+                      <button type="button" onclick="checkSolverApprovalNow()" class="px-3 py-1.5 rounded-lg bg-[#0A2540] text-white font-semibold text-xs cursor-pointer">
+                        Check Approval Status Now
+                      </button>
+                    </div>`
+                  : ''
+              }
+
+              <div class="mt-4 pt-3 border-t border-slate-100 text-center">
+                <p class="text-[11px] text-slate-400 mb-1.5">Default Approved Solver Demo Number:</p>
+                <button
+                  type="button"
+                  onclick="state.solverPhoneInput = '${state.approvedSolvers[0] || '9840012345'}'; saveStorage('sairam_saved_solver_phone_v3', state.solverPhoneInput); renderApp();"
+                  class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-xs font-semibold text-slate-700 cursor-pointer"
+                >
+                  Use +91 ${escapeHTML(state.approvedSolvers[0] || '9840012345')}
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      const activeIssues = state.issues.filter((i) => i.status !== 'Solved');
+      const finishedIssues = state.issues.filter((i) => i.status === 'Solved');
+      let displayList = state.solverBoxTab === 'finished' ? [...finishedIssues] : [...activeIssues];
+
+      if (state.solverSort === 'priority') {
+        displayList.sort((a, b) => (b.upvotes || 0) - (a.upvotes || 0));
+      } else {
+        displayList.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+      }
+
+      return `
+        <div class="space-y-6 animate-slide-up">
+          <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="px-2.5 py-0.5 rounded-md bg-teal-600 text-white text-xs font-bold">
+                  Solver: +91 ${escapeHTML(state.solverUser.phone)}
+                </span>
+                <span class="px-2.5 py-0.5 rounded-md bg-amber-50 text-amber-800 border border-amber-200 text-xs font-semibold">
+                  ${activeIssues.length} Active • ${finishedIssues.length} Finished
+                </span>
+              </div>
+              <p class="text-xs text-slate-500 mt-1">
+                Review incoming problems in IST and reply with live status updates.
+              </p>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2">
+              <div class="inline-flex bg-slate-100 p-1 rounded-xl">
+                <button
+                  onclick="state.solverBoxTab = 'active'; renderApp();"
+                  class="px-3 py-1.5 rounded-lg text-xs font-semibold cursor-pointer ${
+                    state.solverBoxTab === 'active' ? 'bg-white text-[#0A2540] shadow-xs' : 'text-slate-600'
+                  }"
+                >
+                  Active (${activeIssues.length})
+                </button>
+                <button
+                  onclick="state.solverBoxTab = 'finished'; renderApp();"
+                  class="px-3 py-1.5 rounded-lg text-xs font-semibold cursor-pointer ${
+                    state.solverBoxTab === 'finished' ? 'bg-white text-emerald-700 shadow-xs' : 'text-slate-600'
+                  }"
+                >
+                  Finished (${finishedIssues.length})
+                </button>
+              </div>
+
+              <select
+                onchange="state.solverSort = this.value; renderApp();"
+                class="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-semibold text-slate-700"
+              >
+                <option value="priority" ${state.solverSort === 'priority' ? 'selected' : ''}>Highest Support</option>
+                <option value="latest" ${state.solverSort === 'latest' ? 'selected' : ''}>Latest (IST)</option>
+              </select>
+
+              <button
+                onclick="logoutSolver()"
+                class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border border-slate-200 hover:bg-slate-100 text-slate-600 text-xs font-semibold cursor-pointer"
+              >
+                <i data-lucide="log-out" class="w-4 h-4"></i>
+                <span>Sign Out</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            ${
+              displayList.length === 0
+                ? `<div class="bg-white/95 rounded-2xl p-10 text-center border border-slate-200 text-sm text-slate-500">No issues in this box right now.</div>`
+                : displayList
+                    .map(
+                      (issue) => `
+                  <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-5 border border-slate-200/90 shadow-xs">
+                    <div class="flex flex-col lg:flex-row lg:items-start justify-between gap-4">
+                      <div class="space-y-2 flex-1">
+                        <div class="flex flex-wrap items-center gap-2">
+                          <span class="text-xs font-bold text-slate-400">#${escapeHTML(issue.id)}</span>
+                          <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-800 text-xs font-semibold">
+                            <i data-lucide="map-pin" class="w-3 h-3 text-teal-600"></i>
+                            ${escapeHTML(issue.location)}
+                          </span>
+                          <span class="px-2 py-0.5 rounded-md bg-blue-50 text-blue-800 text-xs font-medium">
+                            From: ${escapeHTML(issue.reporterRole)} (${escapeHTML(issue.reporterId || 'Campus')})
+                          </span>
+                          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-amber-50 text-amber-800 text-xs font-bold">
+                            <i data-lucide="thumbs-up" class="w-3 h-3"></i> ${issue.upvotes} Supports
+                          </span>
+                          ${getStatusBadgeHTML(issue.status)}
+                        </div>
+
+                        <h3 class="text-base sm:text-lg font-bold text-[#0A2540]">
+                          ${escapeHTML(issue.title)}
+                        </h3>
+
+                        <div class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 bg-slate-50 px-3 py-1 rounded-lg border border-slate-200/70">
+                          <i data-lucide="clock" class="w-3.5 h-3.5 text-teal-600"></i>
+                          <span>Received: ${escapeHTML(issue.createdAtIST)}</span>
+                        </div>
+
+                        ${
+                          issue.solverReply
+                            ? `<div class="text-xs text-teal-800 bg-teal-50/70 border border-teal-200 rounded-lg px-3 py-2 mt-2">
+                                <strong>Last Reply (${escapeHTML(issue.replyTimeIST)}):</strong> ${escapeHTML(issue.solverReply)}
+                              </div>`
+                            : ''
+                        }
+                      </div>
+
+                      <div class="lg:w-96 bg-slate-50/90 p-3.5 rounded-xl border border-slate-200/80 space-y-2.5">
+                        <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-500">
+                          Send Reply & Update Status
+                        </label>
+
+                        <input
+                          id="solver-reply-input-${issue.id}"
+                          type="text"
+                          placeholder="Optional note (e.g., Technician assigned)..."
+                          class="w-full px-3 py-2 rounded-lg border border-slate-300 bg-white text-xs focus:outline-none focus:ring-2 focus:ring-teal-600"
+                        />
+
+                        <div class="grid grid-cols-3 gap-1.5">
+                          <button
+                            type="button"
+                            onclick="solverUpdateIssue('${issue.id}', 'Looking into it')"
+                            class="py-2 px-2 rounded-lg bg-sky-600 hover:bg-sky-700 text-white text-[11px] font-semibold transition-colors cursor-pointer"
+                          >
+                            Looking into it
+                          </button>
+
+                          <button
+                            type="button"
+                            onclick="solverUpdateIssue('${issue.id}', 'Will be resolved soon')"
+                            class="py-2 px-2 rounded-lg bg-amber-500 hover:bg-amber-600 text-white text-[11px] font-semibold transition-colors cursor-pointer"
+                          >
+                            Soon
+                          </button>
+
+                          <button
+                            type="button"
+                            onclick="solverUpdateIssue('${issue.id}', 'Solved')"
+                            class="py-2 px-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-[11px] font-semibold transition-colors cursor-pointer"
+                          >
+                            Solved
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                `
+                    )
+                    .join('')
+            }
+          </div>
+        </div>
+      `;
+    }
+
+    function requestSolverLoginApproval(e) {
+      e.preventDefault();
+      const inputEl = document.getElementById('solver-phone-input');
+      const cleanPhone = (inputEl ? inputEl.value : state.solverPhoneInput || '').replace(/\D/g, '');
+      if (cleanPhone.length !== 10) {
+        showToast('Please enter a valid 10-digit Indian mobile number.', 'error');
+        return;
+      }
+
+      state.solverPhoneInput = cleanPhone;
+      saveStorage('sairam_saved_solver_phone_v3', cleanPhone);
+
+      if (state.approvedSolvers.includes(cleanPhone)) {
+        completeApprovedSolverLogin(cleanPhone);
+        return;
+      }
+
+      if (!state.solverRequests.some((r) => r.phone === cleanPhone)) {
+        state.solverRequests = [
+          { phone: cleanPhone, requestedAtIST: formatIST(new Date()) },
+          ...state.solverRequests
+        ];
+        saveStorage('sairam_pwa_solver_requests_v3', state.solverRequests);
+        cloudSaveMeta('solver_access', {
+          requests: state.solverRequests,
+          approved: state.approvedSolvers
+        });
+      }
+
+      state.solverWaitingApproval = true;
+      showToast(`Login request sent to Creator for +91 ${cleanPhone}.`, 'info');
+      renderApp();
+    }
+
+    function completeApprovedSolverLogin(cleanPhone) {
+      const session = {
+        phone: cleanPhone,
+        loginTimeIST: formatIST(new Date())
+      };
+      state.solverUser = session;
+      state.solverWaitingApproval = false;
+      saveStorage('sairam_saved_solver_session_v3', session);
+      showToast(`Solver Verified (+91 ${cleanPhone})`, 'success');
+      renderApp();
+    }
+
+    function checkSolverApprovalNow() {
+      state.approvedSolvers = loadStorage('sairam_pwa_approved_solvers_v3', state.approvedSolvers);
+      const cleanPhone = (state.solverPhoneInput || '').replace(/\D/g, '');
+      if (cleanPhone.length === 10 && state.approvedSolvers.includes(cleanPhone)) {
+        completeApprovedSolverLogin(cleanPhone);
+      } else {
+        showToast('Still waiting for Creator approval in Creator Console.', 'info');
+      }
+    }
+
+    function logoutSolver() {
+      state.solverUser = null;
+      localStorage.removeItem('sairam_saved_solver_session_v3');
+      showToast('Signed out of Solver Desk.', 'info');
+      renderApp();
+    }
+
+    function solverUpdateIssue(issueId, newStatus) {
+      const inputEl = document.getElementById(`solver-reply-input-${issueId}`);
+      const customNote = (inputEl?.value || '').trim();
+      const nowIST = formatIST(new Date());
+      const finalReply = customNote
+        ? customNote
+        : newStatus === 'Looking into it'
+        ? 'We are looking into it.'
+        : newStatus === 'Will be resolved soon'
+        ? 'Will be resolved soon.'
+        : 'Solved.';
+
+      state.issues = state.issues.map((item) =>
+        item.id === issueId
+          ? {
+              ...item,
+              status: newStatus,
+              solverReply: finalReply,
+              replyTimeIST: nowIST
+            }
+          : item
+      );
+      saveStorage('sairam_pwa_issues_v3', state.issues);
+      cloudUpdateIssueFields(issueId, {
+        status: newStatus,
+        solverReply: finalReply,
+        replyTimeIST: nowIST
+      });
+
+      if (newStatus === 'Solved') {
+        playSolvedNotificationChime();
+        showToast('Marked Solved & moved to Finished Box!', 'success');
+      } else {
+        showToast(`Status updated to "${newStatus}" (${nowIST})`, 'success');
+      }
+      renderApp();
+    }
+
+    function renderApp() {
+      updateHeaderAndBanner();
+      const mainEl = document.getElementById('app-main');
+      if (!mainEl) return;
+
+      if (state.activePortal === 'solver') {
+        mainEl.innerHTML = renderSolverPortal();
+      } else if (state.activePortal === 'creator') {
+        mainEl.innerHTML = renderCreatorPortal();
+      } else {
+        mainEl.innerHTML = renderReporterPortal();
+      }
+
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    }
+
+    function approveSolverRequest(phone) {
+      state.solverRequests = state.solverRequests.filter((r) => r.phone !== phone);
+      if (!state.approvedSolvers.includes(phone)) {
+        state.approvedSolvers = [phone, ...state.approvedSolvers];
+      }
+      saveStorage('sairam_pwa_solver_requests_v3', state.solverRequests);
+      saveStorage('sairam_pwa_approved_solvers_v3', state.approvedSolvers);
+      cloudSaveMeta('solver_access', {
+        requests: state.solverRequests,
+        approved: state.approvedSolvers
+      });
+      showToast(`Approved Solver +91 ${phone}! They can now enter the Solver page.`, 'success');
+      renderApp();
+    }
+
+    function rejectSolverRequest(phone) {
+      state.solverRequests = state.solverRequests.filter((r) => r.phone !== phone);
+      saveStorage('sairam_pwa_solver_requests_v3', state.solverRequests);
+      cloudSaveMeta('solver_access', {
+        requests: state.solverRequests,
+        approved: state.approvedSolvers
+      });
+      showToast(`Denied request for +91 ${phone}.`, 'info');
+      renderApp();
+    }
+
+    function removeApprovedSolver(phone) {
+      state.approvedSolvers = state.approvedSolvers.filter((p) => p !== phone);
+      saveStorage('sairam_pwa_approved_solvers_v3', state.approvedSolvers);
+      cloudSaveMeta('solver_access', {
+        requests: state.solverRequests,
+        approved: state.approvedSolvers
+      });
+      showToast(`Removed +91 ${phone} from approved Solvers.`, 'info');
+      renderApp();
+    }
+
+    function publishCreatorConfig() {
+      const notice = (document.getElementById('creator-banner-input')?.value || '').trim();
+      const ver = (document.getElementById('creator-version-input')?.value || '').trim();
+      const paused = !!document.getElementById('creator-pause-check')?.checked;
+
+      state.systemConfig = {
+        announcement: notice || DEFAULT_CONFIG.announcement,
+        announcementTimeIST: formatIST(new Date()),
+        appVersion: ver || DEFAULT_CONFIG.appVersion,
+        maintenanceMode: paused
+      };
+      saveStorage('sairam_pwa_config_v3', state.systemConfig);
+      cloudSaveMeta('config', state.systemConfig);
+      updateHeaderAndBanner();
+      showToast('Live Website settings published with IST timestamp!', 'success');
+    }
+
+    function addCampusLocation(e) {
+      e.preventDefault();
+      const input = document.getElementById('creator-new-loc');
+      const val = (input?.value || '').trim();
+      if (!val) return;
+      if (!state.locations.includes(val)) {
+        state.locations = [...state.locations, val];
+        saveStorage('sairam_pwa_locations_v3', state.locations);
+        cloudSaveMeta('locations', { list: state.locations });
+        showToast(`Added location: ${val}`, 'success');
+      }
+      input.value = '';
+      renderApp();
+    }
+
+    function removeCampusLocation(index) {
+      const removed = state.locations[index];
+      state.locations = state.locations.filter((_, i) => i !== index);
+      saveStorage('sairam_pwa_locations_v3', state.locations);
+      cloudSaveMeta('locations', { list: state.locations });
+      showToast(`Removed location: ${removed}`, 'info');
+      renderApp();
+    }
+
+    function deleteCampusIssue(issueId) {
+      state.issues = state.issues.filter((i) => i.id !== issueId);
+      saveStorage('sairam_pwa_issues_v3', state.issues);
+      cloudDeleteIssueById(issueId);
+      showToast('Report removed.', 'info');
+      renderApp();
+    }
+
+    // Expose functions to global window for inline onclick/onsubmit attributes in HTML
+    Object.assign(window, {
+      switchPortal,
+      openAppShareModal,
+      closeAppShareModal,
+      triggerNativePWAInstall,
+      copyAppPublicLink,
+      shareViaWhatsApp,
+      copyFullWebsiteHTML,
+      shareViaSystemSheet,
+      openStudentLoginModal,
+      closeStudentLoginModal,
+      renderLoginModalRolePills,
+      handleReporterLogin,
+      logoutReporter,
+      setReporterFilter,
+      setReporterSort,
+      toggleIssueSupport,
+      openReportModal,
+      selectModalRole,
+      closeReportModal,
+      submitNewIssue,
+      requestSolverLoginApproval,
+      completeApprovedSolverLogin,
+      checkSolverApprovalNow,
+      logoutSolver,
+      solverUpdateIssue,
+      handleCreatorLogin,
+      logoutCreator,
+      approveSolverRequest,
+      rejectSolverRequest,
+      removeApprovedSolver,
+      publishCreatorConfig,
+      addCampusLocation,
+      removeCampusLocation,
+      deleteCampusIssue,
+      renderApp,
+      state
+    });
+
+    setInterval(() => {
+      if (state.activePortal === 'solver' && !state.solverUser && state.solverWaitingApproval) {
+        state.approvedSolvers = loadStorage('sairam_pwa_approved_solvers_v3', []);
+        const cleanPhone = (state.solverPhoneInput || '').replace(/\D/g, '');
+        if (cleanPhone.length === 10 && state.approvedSolvers.includes(cleanPhone)) {
+          completeApprovedSolverLogin(cleanPhone);
+        }
+      }
+    }, 2000);
+
+    document.addEventListener('DOMContentLoaded', () => {
+      updateClocks();
+      setInterval(updateClocks, 15000);
+      renderApp();
+      initCloudSync();
+    });
+  </script>
+</body>
+</html>
